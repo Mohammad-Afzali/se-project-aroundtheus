@@ -10,129 +10,136 @@
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./images/Logo.svg"
-          alt="Around The U.S logo"
+          src="./images/logo.svg"
+          alt="Around the U.S logo"
           class="header__logo"
         />
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/jacques-cousteau.png"
-            alt="jacques-cousteau image"
+            src="./images/jacques-cousteau.jpg"
+            alt="Avatar images"
             class="profile__image"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
-              id="profile-edit-button"
+              aria-label="edit"
               type="button"
+              id="profile-edit-button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description" id="profile-description">
+              Explorer
+            </p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            aria-label="add"
+            type="button"
+            id="profile-add-button"
+          ></button>
         </section>
         <section class="cards page__section">
-          <ul class="cards__list"></ul>
+          <ul class="cards__gallery"></ul>
         </section>
       </main>
-      <footer class="footer">
-        <p class="footer__copyright">Mohammad @ 2023 Around the U.S</p>
+      <footer class="footer page__section">
+        <p class="footer__copyright">Mohammad @ 2023 Around The U.S</p>
       </footer>
     </div>
-
-    <!-- Edit Modal-->
-
+    <!-- Edit modal-->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
           class="modal__close"
-          id="modal-close-button"
           type="button"
+          id="profile-close-modal"
         ></button>
-        <p class="modal__heading">Edit Profile</p>
-        <form class="modal__form" name="profile-form">
+        <h2 class="modal__heading">Edit profile</h2>
+        <form class="modal__form">
           <input
-            class="modal__form-input"
             type="text"
             name="title"
-            id="profile-title-input"
             placeholder="Name"
+            class="modal__input"
+            id="profile-title-input"
+            required
           />
           <input
-            class="modal__form-input"
             type="text"
-            id="profile-description-input"
             name="description"
-            placeholder="Description"
+            placeholder="About"
+            class="modal__input"
+            id="profile-description-input"
+            required
           />
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
     </div>
-
-    <!--Add Card Modal-->
-
+    <!--Add card modal-->
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
         <button
           class="modal__close"
-          id="modal-close-button"
           type="button"
+          id="profile-card-close-modal"
+          aria-label="close"
         ></button>
-        <p class="modal__heading">New Place</p>
+        <h2 class="modal__heading">New place</h2>
         <form class="modal__form" id="add-card-form">
           <input
-            class="modal__form-input modal__form-input-title"
             type="text"
             name="title"
-            id="add-card-input"
             placeholder="Title"
+            class="modal__input"
+            id="card-title-input"
+            required
           />
           <input
-            class="modal__form-input modal__form-input-url"
             type="text"
-            id="add-url-input"
             name="url"
-            placeholder="Image URL"
+            placeholder="Image Link"
+            class="modal__input"
+            id="card-url-input"
+            required
           />
-          <button class="modal__button" type="submit">Save</button>
+          <button class="modal__button" type="submit">Create</button>
         </form>
       </div>
     </div>
-
-    <!--Image Modal-->
-
-    <div class="modal" id="preview-image-modal">
-      <div class="modal__container">
-        <img
-          src=""
-          alt=""
-          class="preview__card-image"
-          id="preview-card-image"
-        />
-        <p class="preview__image-caption"></p>
+    <!--Modal Preview-->
+    <div class="modal" id="preview__image-modal">
+      <div class="modal__preview-container">
         <button
-          class="modal__close"
-          id="preview-image-close-button"
+          class="modal__close modal__preview-close-button"
           type="button"
+          id="preview__image-close-modal"
         ></button>
+        <img src="#" alt="preview image" class="modal__preview-image" />
+        <h2 class="modal__preview-title"></h2>
       </div>
     </div>
-    
-    <!-- Card Template -->
-
+    <!--card template-->
     <template id="card-template">
       <li class="card">
-        <img src="" class="card__image" alt="" />
+        <img src="" alt="" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
-          <button class="card__like-button" type="button"></button>
-          <button class="card__remove-button" type="button"></button>
-        </div>
-      </li>
-    </template>
-    <script src="./scripts/index.js"></script>
+          <button
+            class="card__trash-button"
+            aria-label="delete"
+            type="button"
+          ></button>
+          <button
+            class="card__like-button"
+            aria-label="like"
+            type="button"
+          ></button>
+        </div></li
+    ></template>
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>
