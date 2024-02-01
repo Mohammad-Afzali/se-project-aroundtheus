@@ -1,10 +1,10 @@
-# Project 5: Around The U.S. Tripleten
+# Project 5: Around The U.S. Tripleten 
 ### Overview
 
 - Intro
 - Project Features
 - Java Script
-- Modal
+- Modalgi
 - Figma
 - Images
 - Project Link
