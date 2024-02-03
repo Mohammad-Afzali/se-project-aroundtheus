@@ -107,13 +107,14 @@ function handleAddCardSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+  e.target.reset(name, link);
   renderCard({ name, link }, cardListEl);
   closeModal(addCardModal);
 }
 
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
-  wrapper.append(cardElement);
+  wrapper.prepend(cardElement);
 }
 
 /*Event Listeners*/
