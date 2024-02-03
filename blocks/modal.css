@@ -46,6 +46,10 @@
   box-sizing: border-box;
 }
 
+.modal__preview-image{
+  background-color: transparent;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
