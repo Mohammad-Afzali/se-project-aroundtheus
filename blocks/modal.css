@@ -12,7 +12,16 @@
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
 }
+.modal__image{
+  max-width: 100%;
+  object-fit: cover;
+  height: auto;
+  width: auto;
+}
 
+.modal__image-caption{
+  position: absolute;
+}
 .modal__heading {
   font-family: "Inter", Arial, sans-serif;
   color: #000;
@@ -31,8 +40,10 @@
   background-color: #fff;
   border-radius: 10px;
   position: relative;
-  width: 430px;
-  height: 330px;
+  width: 100%;
+  max-width: 430px;
+  min-height: 323px;
+  box-sizing: border-box;
 }
 
 .modal__form {
