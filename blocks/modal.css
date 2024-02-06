@@ -15,10 +15,11 @@
   transition: visibility 0s 0.5s, opacity 0.5s;
 }
 .modal__image{
-  max-width: 100%;
-  object-fit: cover;
   max-width: 75vw;
-  min-height: 75vh;
+  max-height: 75vh;
+  object-fit: cover;
+  height: auto;
+  width: auto;
 }
 
 .modal__image-caption{
@@ -46,7 +47,6 @@
   background-color: #fff;
   border-radius: 10px;
   position: relative;
-  width: 100%;
   box-sizing: border-box;
 }
 
