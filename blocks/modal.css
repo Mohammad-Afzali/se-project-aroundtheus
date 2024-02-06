@@ -24,6 +24,7 @@
 
 .modal__image-caption{
   position: absolute;
+  font-family: "Inter", Arial, sans-serif;
 }
 .modal__heading {
   font-family: "Inter", Arial, sans-serif;
