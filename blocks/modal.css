@@ -10,7 +10,9 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.5s, opacity 0.5s;
 }
 .modal__image{
   max-width: 100%;
@@ -34,6 +36,10 @@
 
 .modal_opened {
   display: flex;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s;
+  transition-delay: 0s;
 }
 
 .modal__container {

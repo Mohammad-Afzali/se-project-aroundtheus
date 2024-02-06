@@ -78,8 +78,6 @@ function getCardElement(cardData) {
     previewImage.alt = cardData.name;
     previewModalCaption.textContent = cardData.name;
     openModal(previewImageModal);
-    previewCloseButton.style.visibility = "visible";
-    previewContainer.style.visibility = "visible";
   });
 
   const likeButton = cardElement.querySelector(".card__like-button");
