@@ -17,8 +17,8 @@
 .modal__image{
   max-width: 100%;
   object-fit: cover;
-  height: auto;
-  width: auto;
+  max-width: 75vw;
+  min-height: 75vh;
 }
 
 .modal__image-caption{
@@ -52,8 +52,6 @@
 
 .modal__preview-image{
   background-color: transparent;
-  max-width: 75vw;
-  min-height: 75vh;
   position: relative;
 }
 
