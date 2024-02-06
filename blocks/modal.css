@@ -69,6 +69,7 @@
   border-style: none none solid none;
   border-color: rgba(0, 0, 0, 0.2);
   border-width: 1px;
+  font-family: "Inter", Arial, sans-serif;
 }
 
 .modal__form-input:nth-of-type(2n) {
@@ -77,6 +78,7 @@
 
 .modal__button {
   font-size: 18px;
+  font-family: "Inter", Arial, sans-serif;
   width: 358px;
   height: 50.15px;
   background-color: #000;
