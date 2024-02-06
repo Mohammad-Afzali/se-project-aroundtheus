@@ -47,13 +47,14 @@
   border-radius: 10px;
   position: relative;
   width: 100%;
-  max-width: 430px;
-  min-height: 323px;
   box-sizing: border-box;
 }
 
 .modal__preview-image{
   background-color: transparent;
+  max-width: 75vw;
+  min-height: 75vh;
+  position: relative;
 }
 
 .modal__form {
