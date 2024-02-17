@@ -131,6 +131,23 @@ closeButtons.forEach((button) => {
   button.addEventListener('click', () => closeModal(modal));
 });
 
+function handleEsc(evt) {
+  const modal = document.querySelector(".modal_opened");
+  if (evt.key === "Escape") {
+    closeModal(modal);
+  }
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEsc);
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEsc);
+}
+
 profileForm.addEventListener("submit", handleProfileEditSubmit);
 addCardForm.addEventListener("submit", handleAddCardSubmit);
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
