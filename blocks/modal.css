@@ -114,6 +114,21 @@
   opacity: 60%;
 }
 
+.modal__button_disabled {
+  background-color: #fff;
+  border: 1px;
+  border-style: solid;
+  border-color: #000;
+  color: #000;
+  opacity: 20%;
+}
+
+.modal__error {
+  margin-top: 10px;
+  line-height: 16px;
+  color: #ff0000;
+}
+
 @media screen and (max-width: 635px) {
   .modal__container {
     width: 282px;
