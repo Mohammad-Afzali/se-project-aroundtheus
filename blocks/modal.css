@@ -128,16 +128,12 @@
   top: 150px;
   left: 35px;
   transition: opacity 0.5s;
+  visibility: hidden;
 }  
 
 .modal__error_visible {
   opacity: 1 ;
   visibility: visible;
-  
-}
-
-.modal__input_type_error{
-  border: #ff0000;
 }
 
 @media screen and (max-width: 635px) {

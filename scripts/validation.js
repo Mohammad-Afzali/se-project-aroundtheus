@@ -2,17 +2,17 @@
 function showInputError(formElement,inputElement,{ inputErrorClass, errorClass }
   ) {
     errorMessage = formElement.querySelector(`#${inputElement.id}-error`);
-    inputElement.classList.remove(inputErrorClass);
+    inputElement.classList.add(inputErrorClass);
     errorMessage.textContent = inputElement.validationMessage;
-    errorMessage.classList.remove(errorClass);
+    errorMessage.classList.add(errorClass);
 }
 
 function hideInputError(formElement,inputElement,{ inputErrorClass, errorClass }
     ) {
       errorMessage = formElement.querySelector(`#${inputElement.id}-error`);
-      inputElement.classList.add(inputErrorClass);
+      inputElement.classList.remove(inputErrorClass);
       errorMessage.textContent = inputElement.validationMessage;
-      errorMessage.classList.add(errorClass);
+      errorMessage.classList.remove(errorClass);
   }
 
 function checkInputValidity(formElement,inputElement,options) {
