@@ -24,10 +24,8 @@
 
 .modal__image-caption{
   position: absolute;
-  font-family: "Inter", Arial, sans-serif;
 }
 .modal__heading {
-  font-family: "Inter", Arial, sans-serif;
   color: #000;
   width: 330px;
   height: 23px;
@@ -70,7 +68,6 @@
   border-style: none none solid none;
   border-color: rgba(0, 0, 0, 0.2);
   border-width: 1px;
-  font-family: "Inter", Arial, sans-serif;
 }
 
 .modal__form-input:nth-of-type(2n) {
@@ -79,7 +76,6 @@
 
 .modal__button {
   font-size: 18px;
-  font-family: "Inter", Arial, sans-serif;
   width: 358px;
   height: 50.15px;
   background-color: #000;
@@ -124,9 +120,25 @@
 }
 
 .modal__error {
-  margin-top: 10px;
   line-height: 16px;
+  width: 358px;
   color: #ff0000;
+  font-size: 12px;
+  position: absolute;
+  top: 37px;
+  left: 0;
+  transition: opacity 0.4s;
+  visibility: hidden;
+}
+
+.modal__error_visible {
+  opacity: 1 ;
+  visibility: visible;
+  
+}
+
+.modal__input_type_error{
+  border: #ff0000;
 }
 
 @media screen and (max-width: 635px) {

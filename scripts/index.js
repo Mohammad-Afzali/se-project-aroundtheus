@@ -138,14 +138,22 @@ function handleEsc(evt) {
   }
 }
 
+function closeModalByClickOff(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.currentTarget);
+  }
+}
+
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEsc);
+  modal.removeEventListener("mousedown", closeModalByClickOff)
 }
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEsc);
+  modal.addEventListener("mousedown", closeModalByClickOff);
 }
 
 profileForm.addEventListener("submit", handleProfileEditSubmit);
