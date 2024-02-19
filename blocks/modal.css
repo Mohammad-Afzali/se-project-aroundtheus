@@ -134,6 +134,7 @@
 
 .modal__error_visible {
   opacity: 1 ;
+  visibility:visible ;
 }
 
 .modal__input_type_error{
