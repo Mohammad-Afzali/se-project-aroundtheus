@@ -128,13 +128,12 @@
   top: 150px;
   left: 35px;
   transition: opacity 0.5s;
-  visibility: hidden;
-}
-  
+}  
 
 .modal__error_visible {
   opacity: 1 ;
-  visibility:visible ;
+  visibility: visible;
+  
 }
 
 .modal__input_type_error{
