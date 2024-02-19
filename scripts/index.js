@@ -57,14 +57,6 @@ const cardUrlInput = addCardForm.querySelector(".modal__form-input-url");
 
 /*Functions*/
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
-
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -132,8 +124,8 @@ closeButtons.forEach((button) => {
 });
 
 function handleEsc(evt) {
-  const modal = document.querySelector(".modal_opened");
   if (evt.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
     closeModal(modal);
   }
 }
