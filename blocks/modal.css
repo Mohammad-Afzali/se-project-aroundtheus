@@ -120,21 +120,20 @@
 }
 
 .modal__error {
-  line-height: 16px;
-  width: 358px;
+  height: 17px;
+  width: 338px;
   color: #ff0000;
   font-size: 12px;
   position: absolute;
-  top: 37px;
-  left: 0;
-  transition: opacity 0.4s;
+  top: 150px;
+  left: 35px;
+  transition: opacity 0.5s;
   visibility: hidden;
 }
+  
 
 .modal__error_visible {
   opacity: 1 ;
-  visibility: visible;
-  
 }
 
 .modal__input_type_error{
