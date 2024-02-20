@@ -119,6 +119,10 @@
   opacity: 20%;
 }
 
+.modal__label{
+  position: relative;
+}
+
 .modal__error {
   height: 17px;
   width: 338px;

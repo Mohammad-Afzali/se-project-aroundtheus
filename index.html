@@ -53,6 +53,7 @@
         ></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form" name="profile-form">
+        <label class="modal__label">
           <input
             class="modal__form-input"
             type="text"
@@ -64,6 +65,8 @@
             required
           />
           <span class="modal__error" id="profile-title-input-error"></span>
+          </label>
+          <label class="modal__label">
           <input
             class="modal__form-input"
             type="text"
@@ -75,6 +78,7 @@
             required
           />
           <span class="modal__error" id="profile-description-input-error"></span>
+          </label>
           <button class="modal__button modal__button_disabled" id="profile-description-input"
            disabled
            type="submit">Save</button>
@@ -93,6 +97,7 @@
         ></button>
         <p class="modal__heading">New Place</p>
         <form class="modal__form" id="add-card-form">
+          <label class="modal__lable">
           <input
             class="modal__form-input modal__form-input-title"
             type="text"
@@ -104,6 +109,8 @@
             required
           />
           <span class="modal__error" id="add-card-input-error"></span>
+          </label>
+          <label class="modal__label">
           <input
             class="modal__form-input modal__form-input-url"
             type="url"
@@ -112,7 +119,8 @@
             placeholder="Image URL"
             required
           />
-          <span class="modal__error modal__error_visible" id="add-url-input-error"></span>        
+          <span class="modal__error modal__error_visible" id="add-url-input-error"></span>
+          </label>
           <button class="modal__button modal__button_disabled" 
            disabled
            type="submit">Save</button>

@@ -64,7 +64,7 @@ function enableValidation(options) {
       formElement.addEventListener("submit", (evt) => {
         evt.preventDefault();
       });
-      
+    
       setEventListeners(formElement, options);
     });
   }
