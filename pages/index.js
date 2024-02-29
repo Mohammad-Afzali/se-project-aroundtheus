@@ -158,13 +158,12 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 
-/*Card*/
-
 
 
 /* FormValidation*/
 
 const settings = {
+  formSelector: ".modal__form",
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
@@ -172,8 +171,11 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const editFormValidator  = new FormValidator(validationSettings, editFormElement);
-const addFormValidator  = new FormValidator(validationSettings, addFormElement);
+const editForm = document.forms["profile-edit-modal"];
+const cardForm = document.forms["add-card-modal"];
+
+const editFormValidator  = new FormValidator(settings, profile-edit-modal);
+const addFormValidator  = new FormValidator(settings, add-card-modal);
 
 editFormValidator.enabaleValidation();
 addFormValidator.enabaleValidation();
