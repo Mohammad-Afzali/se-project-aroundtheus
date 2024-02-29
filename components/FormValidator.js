@@ -31,13 +31,13 @@ export default class FormValidator{
   }
 
   _foundInvalidInput() {
-    return !this._inputEls.every((inputEl) => inputEl.validity.valid);
+    return !this._inputEls.every((inputElement) => inputElement.validity.valid);
   }
 
   _checkInputValidity() {
-    if (!inputEl.validity.valid) {return this._showInputError(inputEl);
+    if (!inputEl.validity.valid) {return this._showInputError(inputElement);
     } else {
-      this._hideInputError(inputEl);
+      this._hideInputError(inputElement);
     }
 
   }
@@ -45,8 +45,8 @@ export default class FormValidator{
   _setEventLister() {
     this._inputElements = Array.from(this._form.querySelectorAll(this._inputSelector));
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
-    this._inputEls.forEach((_inputEl) => {_inputEl.addEventListener("input", (_evt) => {
-     this._checkInputValidity(_inputEl); 
+    this._inputEls.forEach((_inputElement) => {this._inputElements.addEventListener("input", (_evt) => {
+     this._checkInputValidity(_inputElement); 
      this._toggleButtonState();
 
       });

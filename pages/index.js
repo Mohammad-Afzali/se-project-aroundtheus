@@ -1,4 +1,5 @@
 import FormValidator from "../components/FormValidator.js";
+import Card from"../components/Card.js";
 
 const initialCards = [
     {
@@ -155,3 +156,24 @@ addCardForm.addEventListener("submit", handleAddCardSubmit);
 addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+
+/*Card*/
+
+
+
+/* FormValidation*/
+
+const settings = {
+  inputSelector: ".modal__form-input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormValidator  = new FormValidator(validationSettings, editFormElement);
+const addFormValidator  = new FormValidator(validationSettings, addFormElement);
+
+editFormValidator.enabaleValidation();
+addFormValidator.enabaleValidation();
