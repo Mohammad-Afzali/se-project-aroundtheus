@@ -2,7 +2,7 @@ export default class FormValidator {
   constructor(settings, formElement) {
     this._inputSelector = settings.inputSelector;
     this.submitButtonSelector = settings.submitButtonSelector;
-    this.inactiveButtonClass = settings.disabledButtonClass;
+    this._inactiveButtonClass = settings.disabledButtonClass;
     this.inputErrorClass = settings.inputErrorClass;
     this.errorClass = settings.errorClass;
 
@@ -28,7 +28,7 @@ export default class FormValidator {
       this.disableButton();
       return;
     }
-    this._submitButton.classList.remove(this.inactiveButtonClass);
+    this._submitButton.classList.remove(this._inactiveButtonClass);
     this._submitButton.disabled = false;
   }
 
@@ -38,8 +38,8 @@ export default class FormValidator {
     );
   }
 
-  _checkInputValidity(inputElement) {
-    if (validity.valid) {
+  _checkInputValidity() {
+    if (!inputElement.validity.valid) {
       return this._showInputError(inputElement);
     } else {
       this._hideInputError(inputElement);

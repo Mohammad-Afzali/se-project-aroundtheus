@@ -171,10 +171,9 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const addCardForm2 = document.querySelector('#add-card-form');
 
 const editcardFormValidator  = new FormValidator(settings, profileEditModal);
-const addcardFormValidator  = new FormValidator(settings, addCardForm2);
+const addcardFormValidator  = new FormValidator(settings, addCardForm);
 
 editcardFormValidator.enabaleValidation();
 addcardFormValidator.enabaleValidation();
