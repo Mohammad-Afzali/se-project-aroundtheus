@@ -11,16 +11,16 @@ export default class FormValidator {
 
   _showInputError(inputElement) {
     this.errorElement = this._form.querySelector(`#${inputElement.id}-error`);
-    inputElement.classList.add(this._inputErrorClass);
+    inputElement.classList.add(this.inputErrorClass);
     this.errorElement.textContent = inputElement.validationMessage;
-    this.errorElement.classList.add(this._errorClass);
+    this.errorElement.classList.add(this.errorClass);
   }
 
   _hideInputError(inputElement) {
     this.errorElement = this._form.querySelector(`#${inputElement.id}-error`);
-    inputElement.classList.remove(this._inputErrorClass);
+    inputElement.classList.remove(this.inputErrorClass);
     this.errorElement.textContent = inputElement.validationMessage;
-    this.errorElement.classList.remvove(this._errorClass);
+    this.errorElement.classList.remvove(this.errorClass);
   }
 
   _toggleButtonState() {
@@ -28,7 +28,7 @@ export default class FormValidator {
       this.disableButton();
       return;
     }
-    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.classList.remove(this.inactiveButtonClass);
     this._submitButton.disabled = false;
   }
 
