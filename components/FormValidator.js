@@ -20,7 +20,7 @@ export default class FormValidator {
     this.errorElement = this._form.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(this.inputErrorClass);
     this.errorElement.textContent = inputElement.validationMessage;
-    this.errorElement.classList.remvove(this.errorClass);
+    this.errorElement.classList.remove(this.errorClass);
   }
 
   _toggleButtonState() {
@@ -38,7 +38,7 @@ export default class FormValidator {
     );
   }
 
-  _checkInputValidity(formElement, inputElement, options) {
+  _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       return this._showInputError(inputElement);
     } else {
@@ -51,10 +51,10 @@ export default class FormValidator {
       this._form.querySelectorAll(this._inputSelector)
     );
     this._submitButton = this._form.querySelector(this.submitButtonSelector);
-    this._inputElements.forEach((_inputElement) => {
-      _inputElement.addEventListener("input", (_evt) => {
-        this._checkInputValidity(this.formElement, inputElement, options);
-        this._toggleButtonState(inputElement, submitButton, options);
+    this._inputElements.forEach((inputElement) => {
+      inputElement.addEventListener("input", (_evt) => {
+        this._checkInputValidity(inputElement,);
+        this._toggleButtonState();
       });
     });
 
