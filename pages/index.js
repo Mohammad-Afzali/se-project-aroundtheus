@@ -58,24 +58,25 @@ const cardTemplate =
 const cardTitleInput = addCardForm.querySelector(".modal__form-input-title");
 const cardUrlInput = addCardForm.querySelector(".modal__form-input-url");
 
-/*Functions*/
+/*Functions
+
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
-
-  cardImageEl.addEventListener("click", () => {
+  const cardImageElement = cardElement.querySelector(".card__image");
+  const cardTitleElement = cardElement.querySelector(".card__title");
+  cardImageElement.src = cardData.link;
+  cardImageElement.alt = cardData.name;
+  cardTitleElement.textContent = cardData.name;
+ 
+  cardImageElement.addEventListener("click", () => {
     previewImage.src = cardData.link;
     previewImage.alt = cardData.name;
     previewModalCaption.textContent = cardData.name;
     openModal(previewImageModal);
   });
 
-  const likeButton = cardElement.querySelector(".card__like-button");
+  /*const likeButton = cardElement.querySelector(".card__like-button");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card_like-button_active");
   });
@@ -86,7 +87,7 @@ function getCardElement(cardData) {
   });
 
   return cardElement;
-}
+}*/
 
 /*Event Handlers*/
 
@@ -157,8 +158,25 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
+/*Card*/
 
+closeButtons.forEach((button) => {
+  const closeModal = button.closest(".modal");
+  button.addEventListener("click", () => closeModal(closeModal));
+});
 
+initialCards.forEach((cardData) => {
+  const card = new Card(cardData, "#cards-template", handleImageClick);
+  const cardElement = card.getCardElement();
+  cardListElement.prepend(cardElement);
+});
+
+function handleImageClick(card) {
+  openModal(cardImageModal);
+  fullImage.src = card._cardImageElement.src;
+  fullImage.alt = card._cardTitleElement.textContent;
+  imageModalDescription.textContent = card._cardTitleElement.textContent;
+}
 
 /* FormValidation*/
 
