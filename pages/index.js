@@ -53,15 +53,15 @@ const addNewCardButton = document.querySelector(".profile__add-button");
 const profileForm = document.forms["profile-form"];
 const addCardForm = addCardModal.querySelector(".modal__form");
 const cardListElement = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
+const cardsTemplate =
+  document.querySelector("#cards-template").content.firstElementChild;
 const cardTitleInput = addCardForm.querySelector(".modal__form-input-title");
 const cardUrlInput = addCardForm.querySelector(".modal__form-input-url");
 
 /*Functions
 
 
-function getCardElement(cardData) {
+function getCardsElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardTitleElement = cardElement.querySelector(".card__title");

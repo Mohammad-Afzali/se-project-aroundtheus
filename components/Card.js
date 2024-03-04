@@ -11,7 +11,6 @@ export default class Card{
   generateCard () {
     
     this._getTemplete();
-
     this._cardLikeButton =
     this._cardElement.querySelector(".card__Like-Button");
     this._cardDeleteButton = this._cardElement.querySelector("#card-delete-button");
@@ -31,7 +30,6 @@ export default class Card{
   _getTemplete() {
     return document.querySelector(this._cardSelector).content.firstElementChild.cloneNode(ture);
   }
-
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", () => {
        this._handleLikeButton();
