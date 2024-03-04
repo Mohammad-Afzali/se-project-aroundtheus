@@ -28,7 +28,7 @@ export default class Card{
   }
 
   _getTemplete() {
-    return document.querySelector(this._cardSelector).content.firstElementChild.cloneNode(ture);
+    return document.querySelector(this._cardSelector).content.firstElementChild.cloneNode(true);
   }
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", () => {
@@ -52,4 +52,3 @@ export default class Card{
     this._cardElement.remove();
   }
 }
- 
