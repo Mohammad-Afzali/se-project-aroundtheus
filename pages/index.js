@@ -54,7 +54,7 @@ const profileForm = document.forms["profile-form"];
 const addCardForm = addCardModal.querySelector(".modal__form");
 const cardListElement = document.querySelector(".cards__list");
 const cardsTemplate =
-  document.querySelector("#cards-template").content.firstElementChild.cloneNode(ture);
+  document.querySelector("#cards-template").content.firstElementChild.cloneNode(true);
 const cardTitleInput = addCardForm.querySelector(".modal__form-input-title");
 const cardUrlInput = addCardForm.querySelector(".modal__form-input-url");
 
