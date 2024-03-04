@@ -54,7 +54,7 @@ const profileForm = document.forms["profile-form"];
 const addCardForm = addCardModal.querySelector(".modal__form");
 const cardListElement = document.querySelector(".cards__list");
 const cardsTemplate =
-  document.querySelector("#cards-template").content.firstElementChild;
+  document.querySelector("#cards-template").content.firstElementChild.cloneNode(ture);
 const cardTitleInput = addCardForm.querySelector(".modal__form-input-title");
 const cardUrlInput = addCardForm.querySelector(".modal__form-input-url");
 
@@ -62,7 +62,7 @@ const cardUrlInput = addCardForm.querySelector(".modal__form-input-url");
 
 
 function getCardsElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
+  const cardElement = cardsTemplate.cloneNode(true);
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardTitleElement = cardElement.querySelector(".card__title");
   cardImageElement.src = cardData.link;
