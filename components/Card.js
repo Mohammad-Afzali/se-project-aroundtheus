@@ -1,4 +1,4 @@
-export default class Card{
+export default class Card {
   
   constructor(data, cardSelector, handleImageClick) {
     this._name = data.name;
@@ -9,8 +9,8 @@ export default class Card{
   }
 
   generateCard () {
-    
-    this._getTemplete();
+
+    this._cardElement = this._getTemplete();
     this._cardLikeButton =
     this._cardElement.querySelector(".card__Like-Button");
     this._cardDeleteButton = this._cardElement.querySelector("#card-delete-button");
