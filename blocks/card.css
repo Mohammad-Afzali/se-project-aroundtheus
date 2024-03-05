@@ -35,7 +35,7 @@
     justify-content: space-between;
   }
   
-  .card__like-button {
+  .card__Like-Button {
     background: transparent url(../images/Like-inactive.svg) center no-repeat;
     width: 40px;
     height: 18px;
@@ -50,7 +50,7 @@
   }
   
 
-  .card__delete-button {
+  .card__Delete-Button {
     background: transparent url(../images/trash-button.svg) center no-repeat;
     width: 18px;
     height: 19.3px;
