@@ -15,20 +15,19 @@ export default class Card {
       this._cardElement.querySelector(".card__Like-Button");
     this._cardDeleteButton = 
       this._cardElement.querySelector("#card__Delete-Button");
-    this._cardTitleElement = this._cardElement.querySelector("#card-Title");
-    this._cardImageElement = this._cardElement.querySelector("#card-Image");
+    this._cardTitleElement = this._cardElement.querySelector("#card-title");
+    this._cardImageElement = this._cardElement.querySelector("#card-image");
 
     this._cardTitleElement.textContent = this._name;
     this._cardImageElement.src = this._link;
     this._cardImageElement.alt = this._name;
 
     this._setEventListeners();
-
     return this._cardElement;
   }
 
   _getTemplete() {
-    return document.querySelector(this._cardSelector).Content.firstElementChild.cloneNode(true);
+    return document.querySelector(this._cardSelector).content.firstElementChild.cloneNode(true);
   }
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", () => {
