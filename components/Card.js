@@ -32,7 +32,7 @@ export default class Card {
   }
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", () => {
-       this._handleLikeButton();
+        this._handleLikeButton();
       });
 
     this._cardDeleteButton.addEventListener("click", () => {
