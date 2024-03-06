@@ -163,8 +163,10 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 /*Card*/
 
 closeButtons.forEach((button) => {
-  const closeModal = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(closeModal));
+  const modal = button.closest(".modal");
+  button.addEventListener("click", () => {
+    closeModal(modal)
+  });
 });
 
 initialCards.forEach((cardData) => {
