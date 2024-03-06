@@ -34,11 +34,13 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileModalCloseButton = profileEditModal.querySelector(
   "#modal-close-button"
 );
-const previewImageModal = document.querySelector("#preview-image-modal");
-const previewImage = previewImageModal.querySelector("#preview-card-image");
-const previewModalCaption = previewImageModal.querySelector(
-  ".modal__image-caption"
+
+const cardImageModal = document.querySelector("#card-image-modal");
+const ModalImage = cardImageModal.querySelector("#modal__card-image");
+const ModalImageCaption = cardImageModal.querySelector(
+  ".card-image-modal-caption"
 );
+
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -173,8 +175,8 @@ initialCards.forEach((cardData) => {
 
 function handleImageClick(card) {
   openModal(cardImageModal);
-  fullImage.src = card._cardImageElement.src;
-  fullImage.alt = card._cardTitleElement.textContent;
+  ModalImage.src = card._cardImageElement.src;
+  ModalImage.alt = card._cardTitleElement.textContent;
   imageModalDescription.textContent = card._cardTitleElement.textContent;
 }
 
