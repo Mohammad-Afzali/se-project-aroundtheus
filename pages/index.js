@@ -38,7 +38,7 @@ const profileModalCloseButton = profileEditModal.querySelector(
 const cardImageModal = document.querySelector("#card-image-modal");
 const ModalImage = cardImageModal.querySelector("#modal__card-image");
 const ModalImageCaption = cardImageModal.querySelector(
-  ".card-image-modal-caption"
+  "#card-image-modal-caption"
 );
 
 const profileTitle = document.querySelector(".profile__title");
@@ -105,15 +105,15 @@ function handleAddCardSubmit(e) {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   e.target.reset();
-  renderCard({ name, link }, cardListElement);
+  renderCard({ name, link });
   closeModal(addCardModal);
 }
 
 
-/*function renderCard(cardData, wrapper) {
-  const cardElement = getcardElement(cardData);
-  wrapper.prepend(cardElement);
-}*/
+function renderCard(cardData,) {
+  const card = new Card(cardData, "#cards-template", handleImageClick);
+  cardListElement.prepend(card.generateCard());
+}
 
 /*Event Listeners*/
 
@@ -168,16 +168,14 @@ closeButtons.forEach((button) => {
 });
 
 initialCards.forEach((cardData) => {
-  const card = new Card(cardData, "#cards-template", handleImageClick);
-  const cardElement = card.generateCard();
-  cardListElement.prepend(cardElement);
+ renderCard(cardData)
 });
 
 function handleImageClick(card) {
   openModal(cardImageModal);
-  ModalImage.src = card._cardImageElement.src;
-  ModalImage.alt = card._cardTitleElement.textContent;
-  imageModalDescription.textContent = card._cardTitleElement.textContent;
+  ModalImage.src = card.link;
+  ModalImage.alt = card.name;
+  ModalImageCaption.textContent = card.name;
 }
 
 /* FormValidation*/
