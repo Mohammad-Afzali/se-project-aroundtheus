@@ -61,7 +61,7 @@ export default class FormValidator {
     this._toggleButtonState();
   }
 
-  enabaleValidation() {
+  enableValidation() {
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });

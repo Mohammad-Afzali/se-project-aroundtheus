@@ -149,8 +149,7 @@ function handleImageClick(card) {
 
 /* FormValidation*/
 
-const settings = {
-  formSelector: ".modal__form",
+const validationSettings = {
   inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
@@ -158,8 +157,23 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
-const editcardFormValidator  = new FormValidator(settings, profileEditModal);
-const addcardFormValidator  = new FormValidator(settings, addCardForm);
+const editFormValidator = new FormValidator(validationSettings,profileEditModal);
+const addFormValidator = new FormValidator(validationSettings, addCardForm);
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
-editcardFormValidator.enabaleValidation();
-addcardFormValidator.enabaleValidation();
+
+// const settings = {
+//   formSelector: ".modal__form",
+//   inputSelector: ".modal__form-input",
+//   submitButtonSelector: ".modal__button",
+//   inactiveButtonClass: "modal__button_disabled",
+//   inputErrorClass: "modal__input_type_error",
+//   errorClass: "modal__error_visible",
+// };
+
+// const editcardFormValidator  = new FormValidator(settings, profileEditModal);
+// const addcardFormValidator  = new FormValidator(settings, addCardForm);
+
+// editcardFormValidator.enabaleValidation();
+// addcardFormValidator.enabaleValidation();
