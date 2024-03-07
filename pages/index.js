@@ -75,11 +75,15 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link });
   closeModal(addCardModal);
 }
+function createCard (cardData) {
+  const card = new Card(cardData, "#cards-template", handleImageClick);
+  return card.generateCard()
 
+}
 
 function renderCard(cardData,) {
-  const card = new Card(cardData, "#cards-template", handleImageClick);
-  cardListElement.prepend(card.generateCard());
+  const cardElement =createCard(cardData)
+  cardListElement.prepend(cardElement);
 }
 
 /*Event Listeners*/
