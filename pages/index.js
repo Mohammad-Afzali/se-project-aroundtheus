@@ -75,6 +75,7 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link });
   closeModal(addCardModal);
 }
+
 function createCard (cardData) {
   const card = new Card(cardData, "#cards-template", handleImageClick);
   return card.generateCard()
@@ -156,6 +157,23 @@ const validationSettings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+// const formValidators = {};
+
+// const enableValidation = (settings) => {
+//   const formList = Array.from(document.querySelectorAll(settings.formSelector));
+
+//   formList.forEach((formElement) => {
+//     const validator = new FormValidator(settings, formElement);
+//     const formName = formElement.getAttribute("name");
+//     formValidators[formName] = validator;
+//     validator.enableValidation();
+//   });
+// };
+
+// enableValidation(validationSettings);
+
+// formValidators["profile-edit-form"].resetValidation();
 
 const editFormValidator = new FormValidator(validationSettings,profileEditModal);
 const addFormValidator = new FormValidator(validationSettings, addCardForm);
