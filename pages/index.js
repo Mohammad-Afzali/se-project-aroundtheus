@@ -158,7 +158,7 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-const editFormValidator = new FormValidator(validationSettings,document.querySelector('#profile-edit-form'));
+const editFormValidator = new FormValidator(validationSettings, profileForm);
 const addFormValidator = new FormValidator(validationSettings, addCardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
