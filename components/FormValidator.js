@@ -72,6 +72,11 @@ export default class FormValidator {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;
   }
+
+  resetValidation() {
+    this.disableButton();
+    this._form.reset();
+  }
 }
 
 

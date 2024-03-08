@@ -71,7 +71,7 @@ function handleAddCardSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  e.target.reset();
+  addFormValidator.resetValidation();
   renderCard({ name, link });
   closeModal(addCardModal);
 }
@@ -158,24 +158,7 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-// const formValidators = {};
-
-// const enableValidation = (settings) => {
-//   const formList = Array.from(document.querySelectorAll(settings.formSelector));
-
-//   formList.forEach((formElement) => {
-//     const validator = new FormValidator(settings, formElement);
-//     const formName = formElement.getAttribute("name");
-//     formValidators[formName] = validator;
-//     validator.enableValidation();
-//   });
-// };
-
-// enableValidation(validationSettings);
-
-// formValidators["profile-edit-form"].resetValidation();
-
-const editFormValidator = new FormValidator(validationSettings,profileEditModal);
+const editFormValidator = new FormValidator(validationSettings,document.querySelector('#profile-edit-form'));
 const addFormValidator = new FormValidator(validationSettings, addCardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
