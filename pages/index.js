@@ -132,13 +132,6 @@ addNewCardButton.addEventListener("click", () => openModal(addCardModal));
 
 /*Card*/
 
-closeButtons.forEach((button) => {
-  const modal = button.closest(".modal");
-  button.addEventListener("click", () => {
-    closeModal(modal)
-  });
-});
-
 initialCards.forEach(renderCard);
 
 function handleImageClick(card) {
