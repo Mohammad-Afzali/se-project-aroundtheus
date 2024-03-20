@@ -1,8 +1,8 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from"../components/Card.js";
 import "./index.css";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
+import ModalWithImage from "../components/ModalWithImage.js";
+import ModalWithForm from "../components/ModalWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import {
@@ -22,31 +22,24 @@ const EditFormValidator = new FormValidator(
 );
 
 const AddFormValidator = new FormValidator(validationSettings, addCardForm);
-
-const PreviewModal = new PopupWithImage(selectors.previewModal);
-
-const AddCard = new PopupWithForm(
+const PreviewModal = new ModalWithImage(selectors.previewModal);
+const AddCard = new ModalWithForm(
   handleAddCardFormSubmit,
   selectors.addCardForm
 );
 
 const CardSection = new Section(createCard, selectors.cardSection);
 
-const ProfileEdit = new PopupWithForm(
+const ProfileEdit = new ModalWithForm(
   handleProfileFormSubmit,
   selectors.profileEditForm
 );
 
 CardSection.renderItems(initialCards);
-
 EditFormValidator.enableValidation();
-
 AddFormValidator.enableValidation();
-
 PreviewModal.setEventListeners();
-
 AddCard.setEventListeners();
-
 ProfileEdit.setEventListeners();
 
 /*Event Handlers*/
