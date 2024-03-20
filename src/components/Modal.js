@@ -1,7 +1,7 @@
 export default class Modal {
-    constructor(modalSelector) {
-      this._modalElement = document.querySelector(modalSelector);
-    }
+  constructor({ modalSelector }) {
+    this._modalElement = document.querySelector(modalSelector);
+  }
     
     open() {
       this._modalElement.classList.add("modal_opened");
