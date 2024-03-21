@@ -11,9 +11,12 @@ import {
   selectors,
   editProfileButton,
   addCardButton,
-  addCardForm,
-  profileEditForm,
 } from "../utils/constants.js";
+
+const currentUserInfo = new UserInfo(
+  selectors.profileTitle,
+  selectors.profileDescription
+);
 
 
 const EditFormValidator = new FormValidator(
@@ -21,7 +24,7 @@ const EditFormValidator = new FormValidator(
   profileEditForm
 );
 
-const AddFormValidator = new FormValidator(validationSettings, addCardForm);
+const addFormValidator = new FormValidator(validationSettings, addCardForm);
 const PreviewModal = new ModalWithImage(selectors.previewModal);
 const AddCard = new ModalWithForm(
   handleAddCardFormSubmit,
@@ -30,28 +33,28 @@ const AddCard = new ModalWithForm(
 
 const CardSection = new Section(createCard, selectors.cardSection);
 
-const ProfileEdit = new ModalWithForm(
-  handleProfileFormSubmit,
+const profileEditForm = new ModalWithForm(
+  handleProfileEditFormSubmit,
   selectors.profileEditForm
 );
 
 CardSection.renderItems(initialCards);
 EditFormValidator.enableValidation();
-AddFormValidator.enableValidation();
+addFormValidator.enableValidation();
 PreviewModal.setEventListeners();
 AddCard.setEventListeners();
-ProfileEdit.setEventListeners();
+profileEdit.setEventListeners();
 
 /*Event Handlers*/
 
-function handleProfileEditSubmit(e) {
+function handleProfileEditFormSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeModal(profileEditModal);
+  closeModal(profileEdit);
 }
 
-function handleAddCardSubmit(e) {
+function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
@@ -63,7 +66,6 @@ function handleAddCardSubmit(e) {
 function createCard (cardData) {
   const card = new Card(cardData, "#cards-template", handleImageClick);
   return card.generateCard()
-
 }
 
 function renderCard(cardData,) {
@@ -74,18 +76,15 @@ function renderCard(cardData,) {
 /*Card*/
 
 initialCards.forEach(renderCard);
-
 function handleImageClick(card) {
   openModal(cardImageModal);
   modalImage.src = card.link;
   modalImage.alt = card.name;
   modalImageCaption.textContent = card.name;
 }
-
 editProfileButton.addEventListener("click", () => {
   ProfileEdit.open();
 });
-
 addCardButton.addEventListener("click", () => {
   AddCard.open();
 });
