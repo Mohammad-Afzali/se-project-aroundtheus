@@ -20,21 +20,18 @@ const currentUserInfo = new UserInfo(
 
 
 const previewModal = new ModalWithImage(selectors.previewModal);
-
 const addCard = new ModalWithForm(
   selectors.addCardForm,
   handleAddCardFormSubmit,
 );
 
 const cardSection = new Section(createCard, selectors.cardSection);
-
-const profileEdit = new ModalWithForm;WithForm(
-  handleProfileFormSubmit,
+const profileEdit = new ModalWithForm(
   selectors.profileEditForm,
+  handleProfileFormSubmit,
 );
 
 const formValidators = {};
-
 const enableValidation = (selectors) => {
   const formList = Array.from(
     document.querySelectorAll(selectors.formsSelector)

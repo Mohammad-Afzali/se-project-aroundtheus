@@ -44,7 +44,7 @@ export const validationSettings = {
 };
 
 export const selectors = {
-  cardSection: "#cards-list",
+  cardSection: ".cards__list",
   cardTemplate: "#cards-template",
   previewModal: "#card-image-modal",
   addCardForm: "#add-card-modal",
