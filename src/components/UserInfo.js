@@ -1,22 +1,21 @@
 export default class UserInfo {
-    constructor(formValues) {
-      this._submittedName = formValues.name;
-      this._submittedDescription = formValues.description;
-    }
-  
-    getUserInfo() {
-      this._userInfo = {
-        name: this._submittedName,
-        description: this._submittedDescription,
-      };
-      return this._userInfo;
-    }
-  
-    setUserInfo(nameSelector, detailsSelector) {
-      this._nameSelector = document.querySelector(nameSelector);
-      this._detailsSelector = document.querySelector(detailsSelector);
-  
-      this._nameSelector.textContent = this._userInfo.name;
-      this._detailsSelector.textContent = this._userInfo.description;
-    }
+  constructor(profileName, profileDescription) {
+    this._name = document.querySelector(profileName); //remove textContent
+    this._description = document.querySelector(profileDescription);
   }
+
+  getUserInfo() {
+    this._userInfo = {
+      name: this._name.textContent,
+      description: this._description.textContent,
+    };
+    return this._userInfo;
+  }
+
+  setUserInfo({ name, description }) {
+    this._newTitle = name;
+    this._newDescription = description;
+    this._name.textContent = this._newTitle;
+    this._description.textContent = this._newDescription;
+  }
+}

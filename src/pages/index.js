@@ -19,72 +19,89 @@ const currentUserInfo = new UserInfo(
 );
 
 
-const EditFormValidator = new FormValidator(
-  validationSettings,
-  profileEditForm
-);
+const previewModal = new ModalWithImage(selectors.previewModal);
 
-const addFormValidator = new FormValidator(validationSettings, addCardForm);
-const PreviewModal = new ModalWithImage(selectors.previewModal);
-const AddCard = new ModalWithForm(
+const addCard = new ModalWithForm(
+  selectors.addCardForm,
   handleAddCardFormSubmit,
-  selectors.addCardForm
 );
 
-const CardSection = new Section(createCard, selectors.cardSection);
+const cardSection = new Section(createCard, selectors.cardSection);
 
-const profileEditForm = new ModalWithForm(
-  handleProfileEditFormSubmit,
-  selectors.profileEditForm
+const profileEdit = new ModalWithForm;WithForm(
+  handleProfileFormSubmit,
+  selectors.profileEditForm,
 );
 
-CardSection.renderItems(initialCards);
-EditFormValidator.enableValidation();
-addFormValidator.enableValidation();
-PreviewModal.setEventListeners();
-AddCard.setEventListeners();
+const formValidators = {};
+
+const enableValidation = (selectors) => {
+  const formList = Array.from(
+    document.querySelectorAll(selectors.formsSelector)
+  );
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(validationSettings, formElement);
+    const formName = formElement.getAttribute("name");
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};;
+
+cardSection.renderItems(initialCards);
+enableValidation(selectors);
 profileEdit.setEventListeners();
+addCard.setEventListeners();
+previewModal.setEventListeners();
 
-/*Event Handlers*/
-
-function handleProfileEditFormSubmit(e) {
-  e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closeModal(profileEdit);
+function updateUserInfo({ name, description }) {
+  currentUserInfo.setUserInfo({ name, description });
 }
 
-function handleAddCardFormSubmit(e) {
-  e.preventDefault();
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
-  addFormValidator.resetValidation();
-  renderCard({ name, link });
-  closeModal(addCardModal);
+function setFormInfo(nameSelector, detailsSelector) {
+  const formName = document.querySelector(nameSelector);
+  const formDetails = document.querySelector(detailsSelector);
+  const { description, name } = currentUserInfo.getUserInfo();
+  formName.value = name.trim();
+  formDetails.value = description.trim();
 }
 
-function createCard (cardData) {
-  const card = new Card(cardData, "#cards-template", handleImageClick);
-  return card.generateCard()
+function createCard(data) {
+  const cardElement = new Card({ data, handleImageClick }, "#cards-template");
+  return cardElement.generateCard();
 }
 
-function renderCard(cardData,) {
-  const cardElement =createCard(cardData)
-  cardListElement.prepend(cardElement);
+function handleImageClick(imgData) {
+  previewModal.open(imgData);
 }
 
-/*Card*/
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  const { name, description } = profileEdit.formValues;
+  updateUserInfo(profileEdit.formValues);
 
-initialCards.forEach(renderCard);
-function handleImageClick(card) {
-  openModal(cardImageModal);
-  modalImage.src = card.link;
-  modalImage.alt = card.name;
-  modalImageCaption.textContent = card.name;
+  profileEdit.close();
+  formValidators["profile-edit-form"].resetValidation();
 }
+
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
+
+  const { title: name, link } = addCard.formValues;
+
+  const cardElement = createCard({ name, link });
+  cardSection.addItem(cardElement);
+
+  addCard.resetForm();
+  formValidators["add-card-form"].resetValidation();
+  addCard.close();
+}
+
 editProfileButton.addEventListener("click", () => {
-  ProfileEdit.open();
+  profileEdit.open();
+  setFormInfo(selectors.editFormTitle, selectors.editFormDetails);
 });
+
 addCardButton.addEventListener("click", () => {
-  AddCard.open();
+  addCard.open();
 });
