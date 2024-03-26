@@ -75,7 +75,7 @@ function handleImageClick(imgData) {
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   const { name, description } = profileEditForm.formValues;
-  updateUserInfo(profileEdit.formValues);
+  updateUserInfo(profileEditForm.formValues);
 
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
