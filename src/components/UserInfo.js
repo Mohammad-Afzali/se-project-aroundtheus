@@ -1,6 +1,6 @@
 export default class UserInfo {
   constructor(profileName, profileDescription) {
-    this._name = document.querySelector(profileName); //remove textContent
+    this._name = document.querySelector(profileName);
     this._description = document.querySelector(profileDescription);
   }
 
