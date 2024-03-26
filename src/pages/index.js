@@ -26,7 +26,7 @@ const addCard = new ModalWithForm(
 );
 
 const cardSection = new Section(createCard, selectors.cardSection);
-const profileEdit = new ModalWithForm(
+const profileEditForm = new ModalWithForm(
   selectors.profileEditForm,
   handleProfileFormSubmit,
 );
@@ -47,7 +47,7 @@ const enableValidation = (selectors) => {
 
 cardSection.renderItems(initialCards);
 enableValidation(selectors);
-profileEdit.setEventListeners();
+profileEditForm.setEventListeners();
 addCard.setEventListeners();
 previewModal.setEventListeners();
 
@@ -74,10 +74,10 @@ function handleImageClick(imgData) {
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  const { name, description } = profileEdit.formValues;
+  const { name, description } = profileEditForm.formValues;
   updateUserInfo(profileEdit.formValues);
 
-  profileEdit.close();
+  profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
 }
 
@@ -95,7 +95,7 @@ function handleAddCardFormSubmit(evt) {
 }
 
 editProfileButton.addEventListener("click", () => {
-  profileEdit.open();
+  profileEditForm.open();
   setFormInfo(selectors.editFormTitle, selectors.editFormDetails);
 });
 
