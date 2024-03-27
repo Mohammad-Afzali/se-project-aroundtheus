@@ -64,7 +64,7 @@ function setFormInfo(nameSelector, detailsSelector) {
 }
 
 function createCard(data) {
-  const cardElement = new Card({ data, handleImageClick }, "#cards-template");
+  const cardElement = new Card(data, handleImageClick , "#cards-template");
   return cardElement.generateCard();
 }
 
