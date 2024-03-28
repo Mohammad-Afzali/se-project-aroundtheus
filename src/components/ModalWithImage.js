@@ -12,7 +12,6 @@ export default class ModalWithImage extends Modal {
   open(name, link) {
     this._previewImage.src = link;
     this._previewImage.alt = name;
-    console.log(this._previewImageTitle);
     this._previewImageTitle.textContent = name;
     super.open();
   }
