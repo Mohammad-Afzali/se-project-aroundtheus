@@ -73,11 +73,9 @@ function handleImageClick(imgData) {
   previewModal.open(imgData);
 }
 
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  const { name, description } = profileEditForm.formValues;
+function handleProfileFormSubmit(inputValues) {
+  console.log(inputValues);
   updateUserInfo(profileEditForm.formValues);
-
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
 }

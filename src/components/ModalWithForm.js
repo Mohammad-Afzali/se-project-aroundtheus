@@ -5,7 +5,7 @@ export default class ModalwithForm extends Modal {
      super({ modalSelector });
     this._modalForm = this._modalElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
-    this._inputList = this._modalForm.querySelectorAll(".modal__input");
+    this._inputList = this._modalForm.querySelectorAll(".modal__form-input");
   }
 
   close() {
