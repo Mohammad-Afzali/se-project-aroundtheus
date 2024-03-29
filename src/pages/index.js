@@ -34,14 +34,15 @@ const profileEditForm = new ModalWithForm(
 const formValidators = {};
 const enableValidation = (selectors) => {
   const formList = Array.from(
-    document.querySelectorAll(selectors.formsSelector)
+    document.querySelectorAll(selectors.formSelector)
   );
   formList.forEach((formElement) => {
     const validator = new FormValidator(validationSettings, formElement);
     const formName = formElement.getAttribute("name");
+    validator.enableValidation();
+    
 
     formValidators[formName] = validator;
-    validator.enableValidation();
   });
 };;
 
@@ -64,7 +65,6 @@ function setFormInfo(nameSelector, detailsSelector) {
 }
 
 function createCard(data) {
-  // const cardElement = new Card({ data, handleImageClick }, "#cards-template");
   const cardElement = new Card(data, handleImageClick , "#cards-template");
   return cardElement.generateCard();
 }

@@ -9,10 +9,10 @@ export default class ModalWithImage extends Modal {
     );
   }
 
-  open(name, link) {
-    this._previewImage.src = link;
-    this._previewImage.alt = name;
-    this._previewImageTitle.textContent = name;
+  open(data) {
+    this._previewImage.src = data.link;
+    this._previewImage.alt = data.name;
+    this._previewImageTitle.textContent = data.name;
     super.open();
   }
 }
