@@ -74,7 +74,7 @@ function handleImageClick(imgData) {
 }
 
 function handleProfileFormSubmit(inputValues) {
-  updateUserInfo(profileEditForm.formValues);
+  updateUserInfo(inputValues);
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
 }
