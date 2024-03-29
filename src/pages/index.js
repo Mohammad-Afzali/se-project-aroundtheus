@@ -74,19 +74,16 @@ function handleImageClick(imgData) {
 }
 
 function handleProfileFormSubmit(inputValues) {
-  console.log(inputValues);
   updateUserInfo(profileEditForm.formValues);
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
 }
 
-function handleAddCardFormSubmit(evt) {
-  evt.preventDefault();
-
-  const { title: name, link } = addCard.formValues;
-
-  const cardElement = createCard({ name, link });
+function handleAddCardFormSubmit(inputValues) {
+  const cardElement = createCard(inputValues);
   cardSection.addItem(cardElement);
+  formValidators["add-card-form"].resetValidation();
+  addCard.close();
 
   addCard.resetForm();
   formValidators["add-card-form"].resetValidation();
