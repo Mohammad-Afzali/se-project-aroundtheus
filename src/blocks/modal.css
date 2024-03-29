@@ -24,6 +24,7 @@
 
 .modal__image-preview{
   position: absolute;
+  margin: 0;
 }
 .modal__heading {
   color: #000;
