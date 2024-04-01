@@ -84,10 +84,6 @@ function handleAddCardFormSubmit(inputValues) {
   cardSection.addItem(cardElement);
   formValidators["add-card-form"].resetValidation();
   addCard.close();
-
-  addCard.resetForm();
-  formValidators["add-card-form"].resetValidation();
-  addCard.close();
 }
 
 editProfileButton.addEventListener("click", () => {
