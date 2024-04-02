@@ -23,16 +23,13 @@ export default class Modal {
       }
     };
   
-    _handlecloseModalByClickOff(evt) {
+    _handlecloseModalByClickOff = (evt) => {
       if (evt.target.classList.contains("modal")) {
         this.close();
       }
     }
   
     setEventListeners() {
-      this._modalElement.addEventListener("click", (evt) => {
-        this._handlecloseModalByClickOff(evt);
-      });
       this._modalClose.addEventListener("click", () => {
         this.close();
       });

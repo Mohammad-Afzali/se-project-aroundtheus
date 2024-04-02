@@ -8,11 +8,6 @@ export default class ModalwithForm extends Modal {
     this._inputList = this._modalForm.querySelectorAll(".modal__form-input");
   }
 
-  close() {
-    super.close();
-    this._modalForm.reset();
-  }
-
   _getInputValues() {
     const inputValues = {};
     for (const input of this._inputList) {
