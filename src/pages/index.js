@@ -1,6 +1,8 @@
 import FormValidator from "../components/FormValidator.js";
 import Card from"../components/Card.js";
 import "./index.css";
+import Api from "../components/Api.js";
+import ModalWithConfirmation from "../components/ModalWithConfirmation.js";
 import ModalWithImage from "../components/ModalWithImage.js";
 import ModalWithForm from "../components/ModalWithForm.js";
 import Section from "../components/Section.js";
@@ -13,10 +15,24 @@ import {
   addCardButton,
 } from "../utils/constants.js";
 
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "7ed3bb2f-7b5a-422d-a884-e2fa31c7bd62",
+    "Content-Type": "application/json",
+  },
+});
+
 const currentUserInfo = new UserInfo(
   selectors.profileTitle,
   selectors.profileDescription
 );
+
+const deleteCardModal = new ModalWithConfirmation({
+  ModalSelector: "#delete-card-modal",
+  handleConfirm: confirmAction,
+});
+
 
 
 const previewModal = new ModalWithImage(selectors.previewModal);
