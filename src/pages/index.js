@@ -14,26 +14,32 @@ import {
   editProfileButton,
   addCardButton,
 } from "../utils/constants.js";
+import { data } from "autoprefixer";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
-    authorization: "7ed3bb2f-7b5a-422d-a884-e2fa31c7bd62",
+    authorization: "154d8d9b-7465-477d-b941-b7f941dd70ae",
     "Content-Type": "application/json",
   },
 });
+
+const cardSection = new Section(createCard, selectors.cardSection);
+
+api.getInitialCards().then((data) => {
+console.log(data);
+});
+cardSection.renderItems(data);
 
 const currentUserInfo = new UserInfo(
   selectors.profileTitle,
   selectors.profileDescription
 );
 
-const deleteCardModal = new ModalWithConfirmation({
-  ModalSelector: "#delete-card-modal",
-  handleConfirm: confirmAction,
-});
-
-
+// const deleteCardModal = new ModalWithConfirmation({
+//   ModalSelector: "#delete-card-modal",
+//   handleConfirm: confirmAction,
+// });
 
 const previewModal = new ModalWithImage(selectors.previewModal);
 const addCard = new ModalWithForm(
@@ -41,7 +47,7 @@ const addCard = new ModalWithForm(
   handleAddCardFormSubmit,
 );
 
-const cardSection = new Section(createCard, selectors.cardSection);
+
 const profileEditForm = new ModalWithForm(
   selectors.profileEditForm,
   handleProfileFormSubmit,
@@ -62,7 +68,7 @@ const enableValidation = (selectors) => {
   });
 };;
 
-cardSection.renderItems(initialCards);
+
 enableValidation(selectors);
 profileEditForm.setEventListeners();
 addCard.setEventListeners();

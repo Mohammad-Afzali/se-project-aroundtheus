@@ -5,8 +5,6 @@ export default class Card {
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
-    this._confirmModal = confirmModal;
-    this._api = api;
   }
 
   generateCard () {
