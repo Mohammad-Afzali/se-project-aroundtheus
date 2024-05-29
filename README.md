@@ -36,3 +36,4 @@ Good luck and have fun!!
 Git hup: https://github.com/Mohammad-Afzali/se-project-aroundtheus.git
 
 Project link: https://mohammad-afzali.github.io/se-project-aroundtheus/
+// TODO: here you also need to make a request to there server and send a new card you created data to backend

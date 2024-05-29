@@ -27,9 +27,9 @@ const api = new Api({
 const cardSection = new Section(createCard, selectors.cardSection);
 
 api.getInitialCards().then((data) => {
-console.log(data);
+  cardSection.renderItems(data);
 });
-cardSection.renderItems(data);
+
 
 const currentUserInfo = new UserInfo(
   selectors.profileTitle,
@@ -102,10 +102,12 @@ function handleProfileFormSubmit(inputValues) {
 }
 
 function handleAddCardFormSubmit(inputValues) {
+api.addNewCard(inputValues).then((data) => {
   const cardElement = createCard(inputValues);
   cardSection.addItem(cardElement);
   formValidators["add-card-form"].resetValidation();
   addCard.close();
+})
 }
 
 editProfileButton.addEventListener("click", () => {

@@ -32,9 +32,6 @@ export default class ModalWithConfirmation extends Modal {
         .then(() => {
           this.close();
         })
-        .finally(() => {
-          this.renderLoading(false);
-        });
     });
   }
 }

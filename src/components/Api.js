@@ -24,8 +24,6 @@ export default class Api {
       return this._request(`${this._baseUrl}/users/me`, {
         method: "GET",
         headers: this._headers,
-      }).finally(() => {
-        console.log("Done with user info");
       });
     }
   
@@ -40,7 +38,7 @@ export default class Api {
       });
     }
   
-    addNewCards(data) {
+    addNewCard(data) {
       return this._request(`${this._baseUrl}/cards`, {
         method: "POST",
         headers: this._headers,
@@ -49,9 +47,6 @@ export default class Api {
         .then((response) => {
           return response;
         })
-        .finally(() => {
-          console.log("Done adding New Card Information from Server");
-        });
     }
   
     likeCard(cardId) {
@@ -79,9 +74,6 @@ export default class Api {
         .then((response) => {
           return response;
         })
-        .finally(() => {
-          console.log("Done deleting card");
-        });
     }
   
     updateAvatar(data) {
