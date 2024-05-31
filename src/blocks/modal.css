@@ -35,6 +35,10 @@
   margin: 34px 64px 54px 36px;
 }
 
+.modal__delete-heading {
+  padding-bottom: 38px;
+}
+
 .modal_opened {
   display: flex;
   visibility: visible;

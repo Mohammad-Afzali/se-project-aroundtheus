@@ -1,9 +1,8 @@
 import Modal from "./Modal";
 
 export default class ModalWithConfirmation extends Modal {
-  constructor({ popupSelector, handleConfirm }) {
-    super(popupSelector);
-    this._handleConfirm = handleConfirm;
+  constructor({ modalSelector }) {
+    super(modalSelector);
     this._confirmButton = this._popupElement.querySelector(
       ".modal__form-button"
     );
@@ -17,10 +16,14 @@ export default class ModalWithConfirmation extends Modal {
     }
   }
 
-  open(card, cardId) {
-    super.open();
-    this._card = card;
-    this._cardId = cardId;
+  // open(card, cardId) {
+  //   super.open();
+  //   this._card = card;
+  //   this._cardId = cardId;
+  // }
+
+  setHandleConfirm(handleConfirm){
+    this._handleConfirm = handleConfirm;
   }
 
   setEventListeners() {

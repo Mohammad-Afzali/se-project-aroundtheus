@@ -14,7 +14,6 @@ import {
   editProfileButton,
   addCardButton,
 } from "../utils/constants.js";
-import { data } from "autoprefixer";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -36,10 +35,10 @@ const currentUserInfo = new UserInfo(
   selectors.profileDescription
 );
 
-// const deleteCardModal = new ModalWithConfirmation({
-//   ModalSelector: "#delete-card-modal",
-//   handleConfirm: confirmAction,
-// });
+const deleteCardModal = new ModalWithConfirmation({
+  ModalSelector: "#delete-card-modal",
+  handleConfirm: confirmAction,
+});
 
 const previewModal = new ModalWithImage(selectors.previewModal);
 const addCard = new ModalWithForm(
@@ -87,12 +86,20 @@ function setFormInfo(nameSelector, detailsSelector) {
 }
 
 function createCard(data) {
-  const cardElement = new Card(data, handleImageClick , "#cards-template");
+  const cardElement = new Card(data, handleImageClick , "#cards-template" , handleDeleteClick);
   return cardElement.generateCard();
 }
 
 function handleImageClick(imgData) {
   previewModal.open(imgData);
+}
+
+function handleDeleteClick(card) {
+console.log(card);
+deleteCardModal.open();
+deleteCardModal.setHandleConfirm(() => {
+  //call Api here
+}) 
 }
 
 function handleProfileFormSubmit(inputValues) {
