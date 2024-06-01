@@ -37,7 +37,7 @@ const currentUserInfo = new UserInfo(
 
 const deleteCardModal = new ModalWithConfirmation({
   ModalSelector: "#delete-card-modal",
-  handleConfirm: confirmAction,
+  // handleConfirm: confirmAction,
 });
 
 const previewModal = new ModalWithImage(selectors.previewModal);
