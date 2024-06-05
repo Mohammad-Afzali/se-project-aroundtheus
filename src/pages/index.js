@@ -39,6 +39,7 @@ const deleteCardModal = new ModalWithConfirmation({
   modalSelector: "#delete-card-modal",
   // handleConfirm: confirmAction,
 });
+deleteCardModal.setEventListeners()
 
 const previewModal = new ModalWithImage(selectors.previewModal);
 const addCard = new ModalWithForm(

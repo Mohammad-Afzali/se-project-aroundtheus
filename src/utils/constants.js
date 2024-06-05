@@ -25,3 +25,6 @@ export const selectors = {
   editFormTitle: "#profile-title-input",
   editFormDetails: "#profile-description-input",
 };
+
+export const avatarButton = document.querySelector(".profile__image-hover");
+export const avatarForm = document.querySelector("#edit-avatar-form");

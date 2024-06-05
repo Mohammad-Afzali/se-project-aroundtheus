@@ -2,10 +2,11 @@ import Modal from "./Modal";
 
 export default class ModalWithConfirmation extends Modal {
   constructor({ modalSelector }) {
-    super(modalSelector);
+    super({modalSelector});
     this._confirmButton = this._modalElement.querySelector(
       ".modal__form-button"
     );
+    this._formEl = this._modalElement.querySelector('.modal__form');
   }
 
   renderLoading(isLoading, loading = "Deleting...") {
@@ -28,8 +29,9 @@ export default class ModalWithConfirmation extends Modal {
 
   setEventListeners() {
     super.setEventListeners();
-
-    this._confirmButton.addEventListener("click", () => {
+    
+    this._formEl.addEventListener("submit", (event) => {
+      event.preventDefault();
       this.renderLoading(true);
       this._handleConfirm(this._card, this._cardId)
         .then(() => {
