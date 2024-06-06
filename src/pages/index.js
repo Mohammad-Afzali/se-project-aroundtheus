@@ -33,6 +33,7 @@ api.getInitialCards().then((data) => {
 const currentUserInfo = new UserInfo(
   selectors.profileTitle,
   selectors.profileDescription
+  // avatarSelector.profile__avatar,
 );
 
 const deleteCardModal = new ModalWithConfirmation({
@@ -46,6 +47,34 @@ const addCard = new ModalWithForm(
   selectors.addCardForm,
   handleAddCardFormSubmit,
 );
+
+function handleAvatarSubmit(data) {
+  editAvatarModal.renderLoading(true);
+  console.log(data)
+  api
+    .updateAvatar({ avatar: data.url })
+    .then((res) => {
+      currentUserInfo.setAvatar(res.avatar);
+      editAvatarModal.close();
+    })
+    .catch((err) => {
+      console.error("Failed to update user avatar:", err);
+    })
+    .finally(() => {
+      editAvatarModal.renderLoading(false);
+    });
+}
+
+const editAvatarModal = new ModalWithForm(
+  "#edit-avatar-modal",
+  handleAvatarSubmit
+);
+editAvatarModal.setEventListeners();
+
+const profileAvatarContainer = document.querySelector('.profile__image');
+profileAvatarContainer.addEventListener("click", () => {
+  editAvatarModal.open();
+});
 
 
 const profileEditForm = new ModalWithForm(
@@ -100,6 +129,9 @@ console.log(card);
 deleteCardModal.open();
 deleteCardModal.setHandleConfirm(() => {
   //call Api here
+
+  
+  deleteCardModal.close();
 }) 
 }
 
