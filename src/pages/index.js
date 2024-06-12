@@ -128,17 +128,30 @@ function handleDeleteClick(card) {
 console.log(card);
 deleteCardModal.open();
 deleteCardModal.setHandleConfirm(() => {
+
   //call Api here
 
-  
+  const confirmAction = (card, cardId) => {
+    return api
+      .deleteCard(cardId)
+      .then(() => {
+        card.removeCard();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   deleteCardModal.close();
 }) 
 }
 
 function handleProfileFormSubmit(inputValues) {
+  // debugger function 
   updateUserInfo(inputValues);
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
+  
 }
 
 function handleAddCardFormSubmit(inputValues) {
