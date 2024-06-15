@@ -125,25 +125,20 @@ function handleImageClick(imgData) {
 }
 
 function handleDeleteClick(card) {
-console.log(card);
-deleteCardModal.open();
-deleteCardModal.setHandleConfirm(() => {
-
-  //call Api here
-
-  const confirmAction = (card, cardId) => {
+  console.log(card);
+  deleteCardModal.open();
+  deleteCardModal.setHandleConfirm(() => {
+    //call Api here
     return api
-      .deleteCard(cardId)
+      .deleteCard(card._id)
       .then(() => {
-        card.removeCard();
+        card._handleDeleteButton();
+        deleteCardModal.close();
       })
       .catch((error) => {
         console.error(error);
       });
-  };
-
-  deleteCardModal.close();
-}) 
+  });
 }
 
 function handleProfileFormSubmit(inputValues) {
