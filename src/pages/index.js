@@ -36,15 +36,18 @@ const currentUserInfo = new UserInfo(
   // avatarSelector.profile__avatar,
 );
 
-api.loadUserInfo().then((userData) => {
-  userInfo.setUserInfo({
-    name: userData.name,
-    about: userData.about,
+api
+  .getUserInfo()
+  .then((userData) => {
+    userInfo.setAvatar(userData);
+    userInfo.setUserInfo({
+      name: userData.name,
+      about: userData.about,
+    });
+  })
+  .catch((err) => {
+    console.log(err);
   });
-  userInfo.setAvatar({ avatar: userData.avatar });
-});
-
-
 
 const deleteCardModal = new ModalWithConfirmation({
   modalSelector: "#delete-card-modal",
