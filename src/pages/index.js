@@ -39,8 +39,8 @@ const currentUserInfo = new UserInfo(
 api
   .getUserInfo()
   .then((userData) => {
-    userInfo.setAvatar(userData);
-    userInfo.setUserInfo({
+    currentUserInfo.setAvatar(userData.avatar);
+    currentUserInfo.setUserInfo({
       name: userData.name,
       about: userData.about,
     });
@@ -77,8 +77,6 @@ function handleAvatarSubmit(data) {
       editAvatarModal.renderLoading(false);
     });
 }
-
-
 
 const editAvatarModal = new ModalWithForm(
   "#edit-avatar-modal",
