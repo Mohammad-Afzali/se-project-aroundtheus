@@ -92,6 +92,23 @@
     .profile__image {
       margin: 0;
     }
+
+    .profile__image-pencil {
+      background: rgba(0, 0, 0, 0.5) url(../images/Vector\ Add.svg) center
+        no-repeat;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      border: 0;
+    }
+
+    .profile__image-pencil:hover {
+      opacity: 1;
+    }
+    
     .profile__info {
       display: flex;
       flex-wrap: wrap;

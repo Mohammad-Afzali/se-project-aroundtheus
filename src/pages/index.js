@@ -36,6 +36,16 @@ const currentUserInfo = new UserInfo(
   // avatarSelector.profile__avatar,
 );
 
+api.loadUserInfo().then((userData) => {
+  userInfo.setUserInfo({
+    name: userData.name,
+    about: userData.about,
+  });
+  userInfo.setAvatar({ avatar: userData.avatar });
+});
+
+
+
 const deleteCardModal = new ModalWithConfirmation({
   modalSelector: "#delete-card-modal",
   // handleConfirm: confirmAction,
@@ -64,6 +74,8 @@ function handleAvatarSubmit(data) {
       editAvatarModal.renderLoading(false);
     });
 }
+
+
 
 const editAvatarModal = new ModalWithForm(
   "#edit-avatar-modal",
@@ -128,7 +140,6 @@ function handleDeleteClick(card) {
   console.log(card);
   deleteCardModal.open();
   deleteCardModal.setHandleConfirm(() => {
-    //call Api here
     return api
       .deleteCard(card._id)
       .then(() => {
@@ -142,7 +153,6 @@ function handleDeleteClick(card) {
 }
 
 function handleProfileFormSubmit(inputValues) {
-  // debugger function 
   updateUserInfo(inputValues);
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
