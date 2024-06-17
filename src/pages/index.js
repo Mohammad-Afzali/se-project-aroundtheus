@@ -40,6 +40,7 @@ api
   .getUserInfo()
   .then((userData) => {
     currentUserInfo.setAvatar(userData.avatar);
+    debugger;
     currentUserInfo.setUserInfo({
       name: userData.name,
       about: userData.about,
@@ -154,6 +155,8 @@ function handleDeleteClick(card) {
 }
 
 function handleProfileFormSubmit(inputValues) {
+  // send request to PATCH /users/me
+  // only update the page after succesful request
   updateUserInfo(inputValues);
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
