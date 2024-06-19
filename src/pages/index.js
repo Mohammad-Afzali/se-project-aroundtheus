@@ -40,11 +40,13 @@ api
   .getUserInfo()
   .then((userData) => {
     currentUserInfo.setAvatar(userData.avatar);
-    debugger;
+   // debugger;
     currentUserInfo.setUserInfo({
       name: userData.name,
       about: userData.about,
     });
+
+    //currentUserInfo.setUserInfo(userData)
   })
   .catch((err) => {
     console.log(err);
@@ -117,9 +119,9 @@ profileEditForm.setEventListeners();
 addCard.setEventListeners();
 previewModal.setEventListeners();
 
-function updateUserInfo({ name, description }) {
-  currentUserInfo.setUserInfo({ name, description });
-}
+//function updateUserInfo({ name, description }) {
+//  currentUserInfo.setUserInfo({ name, description });
+//}
 
 function setFormInfo(nameSelector, detailsSelector) {
   const formName = document.querySelector(nameSelector);
@@ -155,9 +157,15 @@ function handleDeleteClick(card) {
 }
 
 function handleProfileFormSubmit(inputValues) {
-  updateUserInfo(inputValues);
+  api.updateUserInfo(inputValues).then((res) => {
+ // send request to PATCH /users/me
+  // only update the page after succesful request
+//  updateUserInfo(res);
+  currentUserInfo.setUserInfo(res)
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
+  })
+ 
   
 }
 
