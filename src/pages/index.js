@@ -172,7 +172,9 @@ function handleDeleteClick(card) {
 }
 
 function handleProfileFormSubmit(inputValues) {
-  api.updateUserInfo(inputValues).then((res) => {
+  profileEditForm.renderLoading(true)
+  api.updateUserInfo(inputValues)
+  .then((res) => {
  // send request to PATCH /users/me
   // only update the page after succesful request
 //  updateUserInfo(res);
@@ -180,16 +182,30 @@ function handleProfileFormSubmit(inputValues) {
   profileEditForm.close();
   formValidators["profile-edit-form"].resetValidation();
   })
+  .catch((err) => {
+    console.log(err)
+  })
+  .finally(() => {
+    profileEditForm.renderLoading(false);
+  })
  
   
 }
 
 function handleAddCardFormSubmit(inputValues) {
-api.addNewCard(inputValues).then((data) => {
+  addCard.renderLoading(true)
+api.addNewCard(inputValues)
+.then((data) => {
   const cardElement = createCard(data);
   cardSection.addItem(cardElement);
   formValidators["add-card-form"].resetValidation();
   addCard.close();
+})
+.catch((err) => {
+  console.log(err)
+})
+.finally(() => {
+  addCard.renderLoading(false);
 })
 }
 
