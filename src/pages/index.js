@@ -132,8 +132,23 @@ function setFormInfo(nameSelector, detailsSelector) {
 }
 
 function createCard(data) {
-  const cardElement = new Card(data, handleImageClick , "#cards-template" , handleDeleteClick);
+  const cardElement = new Card(data, handleImageClick , "#cards-template" , handleDeleteClick, handleLikeClick);
   return cardElement.generateCard();
+}
+
+function handleLikeClick(card) {
+  if(card.isLiked) {
+    api.unlikeCard(card._id).then((res) => {
+      // update the UI
+
+      card.updateIsLiked(res.isLiked);
+    })
+  } else {
+    api.likeCard(card._id).then((res) => {
+      // update the UI
+      card.updateIsLiked(res.isLiked);
+    })
+  }
 }
 
 function handleImageClick(imgData) {
@@ -171,7 +186,7 @@ function handleProfileFormSubmit(inputValues) {
 
 function handleAddCardFormSubmit(inputValues) {
 api.addNewCard(inputValues).then((data) => {
-  const cardElement = createCard(inputValues);
+  const cardElement = createCard(data);
   cardSection.addItem(cardElement);
   formValidators["add-card-form"].resetValidation();
   addCard.close();

@@ -52,10 +52,7 @@ export default class Api {
     likeCard(cardId) {
       return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
         method: "PUT",
-        headers: this._headers,
-        body: JSON.stringify({
-          isLiked: true,
-        }),
+        headers: this._headers
       });
     }
   
