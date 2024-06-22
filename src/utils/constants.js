@@ -20,6 +20,7 @@ export const selectors = {
   cardLinkInput: "#add-url-input",
   profileEditForm: "#profile-edit-modal",
   profileDescription: "#profile-description",
+  profileAvatar:  ".profile__image",
   profileTitle: "#profile-title",
   formSelector: ".modal__form",
   editFormTitle: "#profile-title-input",

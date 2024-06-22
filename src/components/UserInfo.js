@@ -1,8 +1,8 @@
 export default class UserInfo {
-  constructor(profileName, profileDescription) {
+  constructor(profileName, profileDescription, profileAvatar) {
     this._name = document.querySelector(profileName);
     this._description = document.querySelector(profileDescription);
-    this._avatar = document.querySelector('.profile__image');
+    this._avatar = document.querySelector(profileAvatar);
   }
 
   getUserInfo() {

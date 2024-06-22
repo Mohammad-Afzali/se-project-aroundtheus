@@ -17,12 +17,6 @@ export default class ModalWithConfirmation extends Modal {
     }
   }
 
-  // open(card, cardId) {
-  //   super.open();
-  //   this._card = card;
-  //   this._cardId = cardId;
-  // }
-
   setHandleConfirm(handleConfirm){
     this._handleConfirm = handleConfirm;
   }
