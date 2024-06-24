@@ -25,14 +25,19 @@ const api = new Api({
 
 const cardSection = new Section(createCard, selectors.cardSection);
 
-api.getInitialCards().then((data) => {
-  cardSection.renderItems(data);
-});
+api
+  .getInitialCards()
+  .then((data) => {
+    cardSection.renderItems(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const currentUserInfo = new UserInfo(
   selectors.profileTitle,
   selectors.profileDescription,
-  selectors.profileAvatar,
+  selectors.profileAvatar
 );
 
 api
@@ -132,22 +137,22 @@ function createCard(data) {
 function handleLikeClick(card) {
   if (card.isLiked) {
     api
-    .unlikeCard(card.id)
-    .then((res) => {
-      card.updateIsLiked(res.isLiked);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .unlikeCard(card.id)
+      .then((res) => {
+        card.updateIsLiked(res.isLiked);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   } else {
     api
-    .likeCard(card.id)
-    .then((res) => {
-      card.updateIsLiked(res.isLiked);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
+      .likeCard(card.id)
+      .then((res) => {
+        card.updateIsLiked(res.isLiked);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }
 
@@ -162,7 +167,7 @@ function handleDeleteClick(card) {
     return api
       .deleteCard(card.id)
       .then(() => {
-        card._handleDeleteButton();
+        card.handleDeleteButton();
         deleteCardModal.close();
       })
       .catch((error) => {

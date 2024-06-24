@@ -26,7 +26,7 @@ export default class ModalWithConfirmation extends Modal {
     
     this._formEl.addEventListener("submit", (event) => {
       event.preventDefault();
-      this.renderLoading(true);
+      this.renderLoading(false);
       this._handleConfirm()
 
     });
